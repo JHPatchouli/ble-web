@@ -1,5 +1,5 @@
 ## BLE-WEB
-### [EN]("https://gitee.com/JHPatchouli_Admin/ble-web/README.md")|[ZH]("https://gitee.com/JHPatchouli_Admin/ble-web/README_ZH.md")
+### [EN]("https://gitee.com/JHPatchouli_Admin/ble-web/blob/master/README.md") | [ZH]("https://gitee.com/JHPatchouli_Admin/ble-web/blob/master/README_ZH.md")
 ### 起步
 每次使用都需要输入服务UUID，演示地址 [BLE-WEB](https://jhpatchouli_admin.gitee.io/ble-web)
 
