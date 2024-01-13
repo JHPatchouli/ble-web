@@ -10,7 +10,7 @@
 >
 > Edge浏览器 [下载地址](https://dl.coolapk.com/down?pn=com.microsoft.emmx&id=MTYzODUy&h=004fdf61s77dqk&from=click)
 >
-> LightBlue [下载地址](https://play.google.com/store/apps/details?id=com.punchthrough.lightblueexplorer)
+> LightBlue [下载地址](https://gitee.com/JHPatchouli_Admin/ble-web/raw/master/apk/LB.aPk)
 --------
 #### Chrome浏览器获取UUID方法如下
 * 访问 `chrome://bluetooth-internals/#devices`
