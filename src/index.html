@@ -5,13 +5,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Web Bluetooth GATT Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    button {
+      margin-bottom: 10px;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #log, #json-log {
+      width: 100%;
+      border: 1px solid #ccc;
+      padding: 10px;
+      max-height: 200px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      resize: vertical;
+    }
+
+    #json-log {
+      margin-top: 10px;
+    }
+  </style>
+
+  <!-- Include jQuery library from local path -->
+  <script src="js/jquery-3.6.4.min.js"></script>
+
+  <!-- Include jquery-jsonview files from local paths -->
+  <link rel="stylesheet" type="text/css" href="css/jquery.jsonview.css">
+  <script type="text/javascript" src="js/jquery.jsonview.js"></script>
 </head>
 
 <body>
   <button onclick="onButtonClick()">Scan and Connect</button>
   <div id="log"></div>
+  <div id="json-log"></div>
 
   <script>
+    // Create a separate log window for JSON data
+    const jsonLogElement = window.$('#json-log');
+
     async function onButtonClick() {
       try {
         const serviceUUID = prompt('Enter Service UUID:');
@@ -51,7 +92,8 @@
                 characteristic.addEventListener('characteristicvaluechanged', (event) => {
                   const value = event.target.value;
                   const decodedValue = new TextDecoder().decode(value);
-                  log('Received data: ' + decodedValue.replace(/\n/g, '#'));
+                  
+                  parseData(decodedValue);
                 });
               }
             }
@@ -72,9 +114,43 @@
       return '[' + supportedProperties.join(', ') + ']';
     }
 
+    function parseData(data) {
+      // Assuming data is a string with '#' as the separator
+      const dataArray = data.split('#');
+      const jsonStringArray = [];
+
+      for (let i = 1; i < dataArray.length; i++) { // Start from index 1 to skip the frame header
+        const currentData = dataArray[i];
+
+        // Check if it's a valid JSON string
+        try {
+          JSON.parse(currentData);
+          jsonStringArray.push(currentData);
+        } catch (error) {
+          // Not a valid JSON string, treat as non-JSON data
+          log('Received non-JSON data: ' + currentData);
+        }
+      }
+
+      if (jsonStringArray.length > 0) {
+        // Display JSON data in a separate window
+        jsonLogElement.empty(); // Clear previous JSON data
+        for (let i = 0; i < jsonStringArray.length; i++) {
+          const jsonObject = JSON.parse(jsonStringArray[i]);
+          beautifyJson(jsonObject);
+        }
+      }
+    }
+
+    function beautifyJson(data) {
+      // Use jquery-jsonview plugin to display nested classes
+      jsonLogElement.JSONView(data, { collapsed: true });
+      jsonLogElement.scrollTop(jsonLogElement.prop("scrollHeight")); // Auto-scroll to the bottom
+    }
+
     function log(message) {
-      const logElement = document.getElementById('log');
-      logElement.innerHTML += message + '<br>';
+      const logElement = window.$('#log');
+      logElement.append(message + '<br>');
     }
   </script>
 
