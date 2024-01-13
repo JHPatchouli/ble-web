@@ -6,9 +6,9 @@
 ### 获取设备的服务UUID
 如果你没有服务UUID请首先获取UUID
 
-> 在安卓普通我们推荐 `Chrome浏览器` 和 `LightBlue`.
+> 在安卓普通我们推荐 `Edge浏览器` 和 `LightBlue`.
 >
-> Chrome浏览器 [下载地址](https://play.google.com/store/apps/details?id=com.android.chrome)
+> Edge浏览器 [下载地址](https://dl.coolapk.com/down?pn=com.microsoft.emmx&id=MTYzODUy&h=004fdf61s77dqk&from=click)
 >
 > LightBlue [下载地址](https://play.google.com/store/apps/details?id=com.punchthrough.lightblueexplorer)
 --------
