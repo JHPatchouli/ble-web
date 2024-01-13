@@ -1,5 +1,5 @@
 ## BLE-WEB
-### [EN]("https://gitee.com/JHPatchouli_Admin/ble-web/blob/master/README.md") | [ZH]("https://gitee.com/JHPatchouli_Admin/ble-web/blob/master/README_ZH.md")
+### [EN](https://gitee.com/JHPatchouli_Admin/ble-web/blob/master/README.md) | [ZH](https://gitee.com/JHPatchouli_Admin/ble-web/blob/master/README_ZH.md)
 ### 起步
 每次使用都需要输入服务UUID，演示地址 [BLE-WEB](https://jhpatchouli_admin.gitee.io/ble-web)
 
@@ -8,9 +8,9 @@
 
 > 在安卓普通我们推荐 `Chrome浏览器` 和 `LightBlue`.
 >
-> Chrome浏览器 [下载地址]("https://play.google.com/store/apps/details?id=com.android.chrome")
+> Chrome浏览器 [下载地址](https://play.google.com/store/apps/details?id=com.android.chrome)
 >
-> LightBlue [下载地址]("https://play.google.com/store/apps/details?id=com.punchthrough.lightblueexplorer")
+> LightBlue [下载地址](https://play.google.com/store/apps/details?id=com.punchthrough.lightblueexplorer)
 --------
 #### Chrome浏览器获取UUID方法如下
 * 访问 `chrome://bluetooth-internals/#devices`
