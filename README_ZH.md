@@ -12,7 +12,7 @@
 >
 > LightBlue [下载地址](https://gitee.com/JHPatchouli_Admin/ble-web/raw/master/apk/LB.aPk(%E5%88%A0))
 --------
-#### Chrome浏览器获取UUID方法如下
+#### Edge浏览器获取UUID方法如下
 * 访问 `chrome://bluetooth-internals/#devices`
 * 点击start scan按钮, 找到你的设备的信息部分，你应该能见到设备的服务UUID.
 --------
