@@ -1,5 +1,5 @@
 ## BLE-WEB
-### [EN](https://gitee.com/JHPatchouli_Admin/ble-web/blob/master/README.md) _|_ [ZH](https://gitee.com/JHPatchouli_Admin/ble-web/blob/master/README_ZH.md)
+### [EN](https://gitee.com/JHPatchouli_Admin/ble-web/blob/master/README.md) I [ZH](https://gitee.com/JHPatchouli_Admin/ble-web/blob/master/README_ZH.md)
 ### Start
 You need to use the UUID for each use, just visit [BLE-WEB](https://jhpatchouli_admin.gitee.io/ble-web)
 
