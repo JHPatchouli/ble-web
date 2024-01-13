@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Bluetooth GATT Example</title>
+</head>
+
+<body>
+  <button onclick="onButtonClick()">Scan and Connect</button>
+  <div id="log"></div>
+
+  <script>
+    async function onButtonClick() {
+      try {
+        const serviceUUID = prompt('Enter Service UUID:');
+        if (!serviceUUID) {
+          log('Please enter a valid Service UUID.');
+          return;
+        }
+
+        log('Requesting any Bluetooth Device...');
+        const device = await navigator.bluetooth.requestDevice({
+          acceptAllDevices: true,
+          optionalServices: [serviceUUID]
+        });
+
+        log('Connecting to GATT Server...');
+        const server = await device.gatt.connect();
+
+        log('Getting Services...');
+        const services = await server.getPrimaryServices();
+
+        for (const service of services) {
+          log('> Service: ' + service.uuid);
+
+          if (service.uuid === serviceUUID) {
+            log('Found the specified service!');
+
+            const characteristics = await service.getCharacteristics();
+
+            for (const characteristic of characteristics) {
+              log('>> Characteristic: ' + characteristic.uuid + ' ' +
+                getSupportedProperties(characteristic));
+
+              if (characteristic.properties.notify) {
+                log('Enabling Notifications...');
+                await characteristic.startNotifications();
+
+                characteristic.addEventListener('characteristicvaluechanged', (event) => {
+                  const value = event.target.value;
+                  const decodedValue = new TextDecoder().decode(value);
+                  log('Received data: ' + decodedValue.replace(/\n/g, '#'));
+                });
+              }
+            }
+          }
+        }
+      } catch (error) {
+        log('Argh! ' + error);
+      }
+    }
+
+    function getSupportedProperties(characteristic) {
+      let supportedProperties = [];
+      for (const p in characteristic.properties) {
+        if (characteristic.properties[p] === true) {
+          supportedProperties.push(p.toUpperCase());
+        }
+      }
+      return '[' + supportedProperties.join(', ') + ']';
+    }
+
+    function log(message) {
+      const logElement = document.getElementById('log');
+      logElement.innerHTML += message + '<br>';
+    }
+  </script>
+
+</body>
+
+</html>
