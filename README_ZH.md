@@ -8,7 +8,7 @@
 
 > 在安卓普通我们推荐 `Edge浏览器` 和 `LightBlue`.
 >
-> Edge浏览器 [下载地址](https://dl.coolapk.com/down?pn=com.microsoft.emmx&id=MTYzODUy&h=004fdf61s77dqk&from=click)
+> Edge浏览器 [下载地址](https://www.coolapk.com/apk/com.microsoft.emmx)
 >
 > LightBlue [下载地址](https://gitee.com/JHPatchouli_Admin/ble-web/raw/master/apk/LB.aPk(%E5%88%A0))
 --------
